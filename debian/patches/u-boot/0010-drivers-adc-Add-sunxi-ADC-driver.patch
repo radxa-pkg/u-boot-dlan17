@@ -56,7 +56,7 @@ index 00000000000..e4c4a6a8ef6
 +#include <fdt_support.h>
 +#include <console.h>
 +#include <asm/arch/clock_sun6i.h>
-+#include <asm/arch/cpu_sunxi_a733.h>
++//#include <asm/arch/cpu_sunxi_a733.h>
 +
 +#define SUNXI_GPADC_BASE 0x02521000
 +#define GPADC0_DATA_PENDING		(1 << 0)

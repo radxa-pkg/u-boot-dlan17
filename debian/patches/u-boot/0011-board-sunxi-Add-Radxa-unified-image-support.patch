@@ -38,7 +38,7 @@ index d96b7897b6c..18117fae3bf 100644
 @@ -12,3 +12,4 @@ obj-$(CONFIG_MACH_SUN4I)	+= dram_sun4i_auto.o
  obj-$(CONFIG_MACH_SUN5I)	+= dram_sun5i_auto.o
  obj-$(CONFIG_MACH_SUN7I)	+= dram_sun5i_auto.o
- obj-$(CONFIG_CHIP_DIP_SCAN)	+= chip.o
+ obj-$(CONFIG_$(PHASE_)CHIP_DIP_SCAN)	+= chip.o
 +obj-$(CONFIG_RADXA_UNIFIED_IMAGE) += cubie_board.o
 diff --git a/src/board/sunxi/board.c b/src/board/sunxi/board.c
 index 2929bc17f08..8d50a5c91c0 100644

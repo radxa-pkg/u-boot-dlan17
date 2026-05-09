@@ -1,5 +1,4 @@
 u-boot/0001-feat-add-radxa-cubie-a7s-supports.patch
-u-boot/0002-spl-only-a733-use-ram-as-boot-device.patch
 u-boot/0003-sunxi-a527-radxa-reduce-DDR-clock-frequency.patch
 u-boot/0004-pinctrl-sunxi-add-I2C0-PG8-PG9-pinmux-support-for-A7.patch
 u-boot/0005-defconfig-enable-FDT_FIXUP_PARTITIONS-for-Cubie-A7S.patch
