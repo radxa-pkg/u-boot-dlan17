@@ -43,8 +43,8 @@ radxa-cubie-a7s_defconfig: clean_config
 	$(UMAKE) radxa-cubie-a7s_defconfig
 
 .PHONY: radxa-cubie-a7s_build
-radxa-cubie-a7s_build: radxa-cubie-a7s_defconfig atf/build/sun60i_a733/debug/bl31.bin
-	$(UMAKE) BL31=../atf/build/sun60i_a733/debug/bl31.bin
+radxa-cubie-a7s_build: radxa-cubie-a7s_defconfig
+	$(UMAKE) SCP=../awbin/a733/scp.bin BL31=../awbin/a733/bl31.bin
 	rm -f src/boot_package-a733.fex
 
 .PHONY: radxa-cubie-a7s
