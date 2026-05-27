@@ -12,10 +12,10 @@ Signed-off-by: Feng Zhang <feng@radxa.com>
  drivers/net/dwc_eth_qos_sunxi.c | 38 +++++++++++++++++++++++++++++----
  1 file changed, 34 insertions(+), 4 deletions(-)
 
-diff --git a/src/drivers/net/dwc_eth_qos_sunxi.c b/src/drivers/net/dwc_eth_qos_sunxi.c
-index 994fabdc2cb..6036e8e879a 100644
---- a/src/drivers/net/dwc_eth_qos_sunxi.c
-+++ b/src/drivers/net/dwc_eth_qos_sunxi.c
+Index: u-boot-dlan17/src/drivers/net/dwc_eth_qos_sunxi.c
+===================================================================
+--- u-boot-dlan17.orig/src/drivers/net/dwc_eth_qos_sunxi.c
++++ u-boot-dlan17/src/drivers/net/dwc_eth_qos_sunxi.c
 @@ -15,6 +15,7 @@
  #include <regmap.h>
  #include <syscon.h>
@@ -24,7 +24,7 @@ index 994fabdc2cb..6036e8e879a 100644
  
  #include <asm/io.h>
  
-@@ -317,15 +318,44 @@ static int eqos_remove_resources_sunxi(struct udevice *dev)
+@@ -317,15 +318,44 @@ static int eqos_remove_resources_sunxi(s
  	return 0;
  }
  
@@ -52,10 +52,10 @@ index 994fabdc2cb..6036e8e879a 100644
  	}
  
 +	/*
-+	 * Use chipid[1] as base, add dev_seq() offset so eth0/eth1 get
-+	 * different MACs from the same chipid. XOR avoids overflow issues.
++	 * chipid[3] is the only word that varies per board,
++	 * use it as base; XOR dev_seq() so eth0/eth1 get different MACs.
 +	 */
-+	mac_seed = chipid[1] ^ dev_seq(dev);
++	mac_seed = chipid[3] ^ dev_seq(dev);
 +
 +	pdata->enetaddr[0] = (chipid[2] >> 8) & 0xff;
 +	pdata->enetaddr[1] = chipid[2] & 0xff;
@@ -72,7 +72,7 @@ index 994fabdc2cb..6036e8e879a 100644
  	return 0;
  }
  
-@@ -343,7 +373,7 @@ static struct eqos_ops eqos_sunxi_ops = {
+@@ -343,7 +373,7 @@ static struct eqos_ops eqos_sunxi_ops =
  	.eqos_calibrate_pads = eqos_null_ops,
  	.eqos_disable_calibration = eqos_null_ops,
  	.eqos_set_tx_clk_speed = eqos_null_ops,
@@ -81,6 +81,3 @@ index 994fabdc2cb..6036e8e879a 100644
  	.eqos_get_tick_clk_rate = eqos_get_tick_clk_rate_sunxi
  };
  
--- 
-2.43.0
-
