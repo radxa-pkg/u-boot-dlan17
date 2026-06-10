@@ -23,3 +23,5 @@ u-boot/0024-net-dwc_eth_qos-sunxi-derive-MAC-from-chipid-as-fall.patch
 u-boot/0025-drivers-usb-host-fix-EHCI-not-working-in-Linux-after.patch
 u-boot/0026-pinctrl-sunxi-fix-R_PIO-register-bank-offset-calcula.patch
 u-boot/0027-sunxi-dts-a733-cubie-a7s-add-USB-host-power-regulato.patch
+u-boot/0028-cmd-sunxi_boot_arisc-pass-device-tree-address-to-SCP.patch
+u-boot/0029-boot-pxe_utils-hook-sunxi_boot_arisc-after-device-t.patch
