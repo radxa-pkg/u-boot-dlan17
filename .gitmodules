@@ -10,3 +10,11 @@
 	path = atf
 	url = https://github.com/dlan17/trusted-firmware-a.git
 	branch = A733
+[submodule "allwinner-arisc"]
+	path = allwinner-arisc
+	url = https://github.com/radxa/allwinner-arisc.git
+	branch = main
+[submodule "allwinner-dramlib"]
+	path = allwinner-dramlib
+	url = https://github.com/radxa/allwinner-dramlib.git
+	branch = main
