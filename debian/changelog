@@ -1,3 +1,19 @@
+u-boot-dlan17 (2026.04-2) unstable; urgency=medium
+
+  [ Feng Zhang ]
+  * awbin: a733: add prebuilt BL31 and SCP firmware
+  * build: use prebuilt BL31/SCP for Cubie-A7S
+  * patches: add A733 memory layout and ARISC support
+  * feat(awbin): update boot0 to v0.6034
+  * patches: add net MAC fallback and EHCI/pinctrl fixes
+  * fix: use chipid[3] for unique MAC
+  * patches: remove preboot-based ARISC startup
+  * patches: add ARISC dtb-aware boot in extlinux flow
+  * chore: add submodules for build arisc
+  * build: build scp/arisc from source
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 11 Jun 2026 09:20:14 +0000
+
 u-boot-dlan17 (2026.04-1) unstable; urgency=medium
 
   [ Feng Zhang ]
