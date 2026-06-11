@@ -2,6 +2,15 @@ UBOOT_PRODUCTS := radxa-cubie-a5e radxa-cubie-a7s
 
 CUSTOM_DEBUILD_ENV := DEB_BUILD_OPTIONS='parallel=1' DEB_CFLAGS_MAINT_SET= DEB_LDFLAGS_MAINT_SET= DEB_OBJCFLAGS_MAINT_SET=
 
+devcontainer_setup: install_toolchain
+
+.PHONY: install_toolchain
+install_toolchain: allwinner-arisc/ar100s/tools/riscv64-elf-x86_64-20201104.tar.gz
+
+%.tar.gz %.tar.xz:
+	mkdir -p $(shell dirname $@)
+	wget -O $@ "https://github.com/radxa/allwinner-toolchain/releases/download/aiot-linux-v1.4.6/$(shell basename $@)"
+
 #
 # Common supporting targets
 #
@@ -43,7 +52,7 @@ radxa-cubie-a7s_defconfig: clean_config
 	$(UMAKE) radxa-cubie-a7s_defconfig
 
 .PHONY: radxa-cubie-a7s_build
-radxa-cubie-a7s_build: radxa-cubie-a7s_defconfig
+radxa-cubie-a7s_build: radxa-cubie-a7s_defconfig awbin/a733/scp.bin
 	$(UMAKE) SCP=../awbin/a733/scp.bin BL31=../awbin/a733/bl31.bin
 	rm -f src/boot_package-a733.fex
 
@@ -54,3 +63,18 @@ radxa-cubie-a7s: radxa-cubie-a7s_build src/boot_package-a733.fex
 	cp awbin/a733/sys_partition_nor.bin out/$@/
 	cp src/boot_package-a733.fex out/$@/boot_package.fex
 	cp setup/u-boot_setup-allwinner.sh out/$@/setup.sh
+
+#
+# SCP
+#
+
+SCP_PLATFORM_a733 = sun60iw2p1
+SCP_PLATFORM_a527 = sun55iw3p1
+
+%/scp.bin:
+	$(MAKE) -j$(shell nproc) -C allwinner-arisc \
+		LICHEE_ARISC_DEFDIR=ar100s \
+		LICHEE_ARISC_DEFCONFIG=$(SCP_PLATFORM_$(notdir $*))_defconfig \
+		LICHEE_DRAMLIB_PATH=$(realpath allwinner-dramlib) \
+		CFG_CHIP_PLATFORM=$(SCP_PLATFORM_$(notdir $*))
+	mv allwinner-arisc/ar100s/scp.bin $@
