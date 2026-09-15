@@ -1,3 +1,14 @@
+u-boot-dlan17 (2026.04-4) unstable; urgency=medium
+
+  [ Feng Zhang ]
+  * u-boot: patches: add A733-B voltage auto-configuration
+  * u-boot: migrate quilt patches into source
+
+  [ github-actions[bot] ]
+  * chore: update submodules
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 15 Sep 2026 08:50:12 +0000
+
 u-boot-dlan17 (2026.04-3) unstable; urgency=medium
 
   [ Feng Zhang ]
