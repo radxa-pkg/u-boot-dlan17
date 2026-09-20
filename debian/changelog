@@ -7,7 +7,7 @@ u-boot-dlan17 (2026.04-4) unstable; urgency=medium
   [ github-actions[bot] ]
   * chore: update submodules
 
- -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 15 Sep 2026 08:50:12 +0000
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Sun, 20 Sep 2026 03:57:04 +0000
 
 u-boot-dlan17 (2026.04-3) unstable; urgency=medium
 
