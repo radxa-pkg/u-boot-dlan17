@@ -1,3 +1,10 @@
+u-boot-dlan17 (2026.04-5) unstable; urgency=medium
+
+  [ github-actions[bot] ]
+  * chore: update submodules
+
+ -- "Radxa Computer (Shenzhen) Co., Ltd." <dev@radxa.com>  Thu, 19 Nov 2026 08:00:09 +0000
+
 u-boot-dlan17 (2026.04-4) unstable; urgency=medium
 
   [ Feng Zhang ]
